@@ -3,6 +3,7 @@ import { ListGroup, ListGroupItem, Button} from 'reactstrap';
 
 function Order(props) {
     return <ListGroup>
+
         <ListGroupItem className='bg-dark text-warning'>
             <span>{props.label} </span>
             <span> x{props.count()} = {props.total()} сом</span>
