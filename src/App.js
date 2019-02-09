@@ -27,7 +27,8 @@ class App extends Component {
           tea: {count: 0, total: 0},
           fries: {count: 0, total: 0},
           cola: {count: 0, total: 0}
-      }
+      },
+      text: true
   };
 
 
@@ -45,6 +46,19 @@ class App extends Component {
 
 
     };
+
+
+  checkerFunction = (foods) => {
+        let keys = Object.keys(foods);
+        let counter = 0;
+        let totalCount = 0;
+        while (counter < keys.length) {
+            totalCount += foods[keys[counter]].count;
+            counter++;
+        }
+        return totalCount <= 0;
+    };
+
 
   getCount = (name) => {
     return this.state.foods[name].count;
@@ -74,6 +88,8 @@ foodChanger = (name, event) => {
         foods[name] = food;
 
         let state = {...this.state};
+
+        state.text = this.checkerFunction(foods);
         state.foods = foods;
 
         this.setState(state);
@@ -86,7 +102,7 @@ foodChanger = (name, event) => {
           <Container>
             <Row>
               <Col xs={5}>
-                  <OrderDetail total={this.getTotal()}>
+                  <OrderDetail text={this.state.text} total={this.getTotal()}>
 
                     {availableFoods.map(item => {
                         return <Order
