@@ -68,9 +68,6 @@ class App extends Component {
     return this.state.foods[name].total;
 };
 
-  isAddButtonDisabled = (name) => {
-       return this.state.foods[name].count === 0;
-    };
 
 foodChanger = (name, event) => {
 
@@ -110,7 +107,6 @@ foodChanger = (name, event) => {
                             label={item.label}
                             count={() => this.getCount(item.name)}
                             total={() => this.getFoodTotal(item.name)}
-                            isDisabled={() => this.isAddButtonDisabled(item.name)}
                             changeFood={(event) => this.foodChanger(item.name, event)}/>
                     })}
                   </OrderDetail>

@@ -8,7 +8,7 @@ function Order(props) {
             <ListGroupItem className='bg-dark text-warning mb-2'>
                 <span>{props.label} </span>
                 <span> x{props.count()} = {props.total()} сом</span>
-                <Button color='danger' disabled={props.isDisabled()} className="float-right" onClick={(event) => props.changeFood(event)}>X</Button>
+                <Button color='danger' className="float-right" onClick={(event) => props.changeFood(event)}>X</Button>
             </ListGroupItem>
             : null}
     </ListGroup>
